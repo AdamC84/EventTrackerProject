@@ -3,7 +3,6 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-rootProject.name = 'GrothTrackerBoot'
-
+rootProject.name = 'GrowthTrackerSpring'
 
 includeFlat 'GrowthTrackerJPA'

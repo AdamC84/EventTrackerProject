@@ -16,13 +16,13 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `table1`
+-- Table `Event`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `table1` ;
+DROP TABLE IF EXISTS `Event` ;
 
-CREATE TABLE IF NOT EXISTS `table1` (
+CREATE TABLE IF NOT EXISTS `Event` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `event` VARCHAR(45) NOT NULL,
+  `category` VARCHAR(45) NOT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
@@ -42,12 +42,12 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `table1`
+-- Data for table `Event`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mydb`;
-INSERT INTO `table1` (`id`, `event`, `first_name`, `last_name`, `description`, `date`) VALUES (1, 'Height', 'Bodi', 'Crawford', 'Bodi grew a half inch in the last month', '1 Jun 2018');
-INSERT INTO `table1` (`id`, `event`, `first_name`, `last_name`, `description`, `date`) VALUES (2, 'Height', 'Jude', 'Crawford', 'Jude grew a half inch in the last month', '1 Jun 2018');
+INSERT INTO `Event` (`id`, `category`, `first_name`, `last_name`, `description`, `date`) VALUES (1, 'Height', 'Bodi', 'Crawford', 'Bodi grew a half inch in the last month', '1 Jun 2018');
+INSERT INTO `Event` (`id`, `category`, `first_name`, `last_name`, `description`, `date`) VALUES (2, 'Height', 'Jude', 'Crawford', 'Jude grew a half inch in the last month', '1 Jun 2018');
 
 COMMIT;
 
