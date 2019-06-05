@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.growthTracker.entities.Event;
 import com.skilldistillery.growthTracker.repositories.EventRepository;
-
+@Service
 public class EventSevrviceImpl implements EventService {
 	
 	@Autowired
@@ -17,7 +18,7 @@ public class EventSevrviceImpl implements EventService {
 	@Override
 	public List<Event> allEvents() {
 		List<Event> events = repo.findAll();
-		return null;
+		return events;
 	}
 
 	@Override
@@ -40,7 +41,7 @@ public class EventSevrviceImpl implements EventService {
 	public Event replace(int id, Event event) {
 		event.setId(id);
 		repo.saveAndFlush(event);
-		return null;
+		return event;
 	}
 
 	@Override

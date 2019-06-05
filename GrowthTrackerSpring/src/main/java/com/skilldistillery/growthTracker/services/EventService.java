@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.growthTracker.entities.Event;
 
-@Service
+
 public interface EventService {
 		List<Event> allEvents();
 		Event EventById(int id);
