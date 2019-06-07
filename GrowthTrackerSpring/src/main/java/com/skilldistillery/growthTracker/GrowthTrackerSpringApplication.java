@@ -2,9 +2,16 @@ package com.skilldistillery.growthTracker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class GrowthTrackerSpringApplication {
+public class GrowthTrackerSpringApplication extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(GrowthTrackerSpringApplication.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(GrowthTrackerSpringApplication.class, args);
