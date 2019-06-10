@@ -21,6 +21,7 @@ function loadEvents() {
 		if (xhr.readyState === 4 && xhr.status < 400) {
 			var data = JSON.parse(xhr.responseText);
 			displayEvents(data);
+			aggData(data);
 			// console.log(data);
 			console.log(xhr.responseText);
 
@@ -32,6 +33,12 @@ function loadEvents() {
 		}
 	};
 	xhr.send(null);
+}
+function aggData(data){
+	var div = document.getElementById('loadedEvents');
+	var p = document.createElement('p');
+	p.textContent = "The number of entries are :" + data.length;
+	div.appendChild(p);
 }
 function addEvent() {
 	console.log("working");
