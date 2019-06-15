@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.skilldistillery.growthTracker.services.EventService;
 
 @RestController
 @RequestMapping("api")
+@CrossOrigin({ "*", "http://localhost:4205" })
 public class EventController {
 
 	@Autowired
@@ -31,13 +33,13 @@ public class EventController {
 		return events;
 	}
 
-	@GetMapping("event/{id}")
+	@GetMapping("events/{id}")
 	public Event show(@PathVariable Integer id) {
 		return svc.EventById(id);
 
 	}
 
-	@PostMapping("event")
+	@PostMapping("")
 	public Event create(@RequestBody Event event) {
 
 		Event created = svc.create(event);

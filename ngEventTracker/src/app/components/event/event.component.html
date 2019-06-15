@@ -1,0 +1,33 @@
+<h1>{{title}}: <span>{{getNumberOfEvents()}}</span></h1>
+
+<div *ngFor="let event of events">
+  <ul *ngIf="!selected">
+  <li (click)="displayEvent(event)">{{event.category}}</li>
+  <li>{{event.date}}</li>
+  <button type="button" class="btn btn-danger" (click)="deleteEvent(event.id)">X</button>
+</ul>
+</div>
+<form *ngIf="!selected">
+  <input type="text" name="category" placeholder="category" [(ngModel)]='newEvent.category' /><br />
+  <input type="text" name="fName" placeholder="first name" [(ngModel)]='newEvent.fName' /><br />
+  <input type="text" name="lName" placeholder="last name" [(ngModel)]='newEvent.lName' /><br />
+  <input type="text" name="description" placeholder="description" [(ngModel)]='newEvent.description' /><br />
+  <input type="text" name="date" placeholder="date" [(ngModel)]='newEvent.date' /><br />
+  <input type="submit" value="Add Event" (click)='addEvent()' />
+</form>
+<div *ngIf="selected">
+    <p>{{selected.id}}</p>
+    <p>{{selected.category}}</p>
+    <p>{{selected.fName}}</p>
+    <p>{{selected.lName}}</p>
+    <p>{{selected.description}}</p>
+    <button (click)="displayTable()">Back</button><br>
+    <button (click)="setEditEvent()">Edit</button>
+</div>
+<form *ngIf="editEvent">
+    <input type="text" name="category" placeholder="category" [(ngModel)]='editEvent.category'>
+    <input type="text" name="description" placeholder="description" [(ngModel)]='editEvent.description'>
+    <button (click)="editEvent = null;">Cancel</button><br>
+    <button (click)="updateEvent(editEvent)">Save</button>
+</form>
+
